@@ -309,10 +309,10 @@ def main(argv=None):
     p.add_argument("--vel", type=float, default=0.2, help="velocity scaling 0..1")
     p.add_argument("--acc", type=float, default=0.2, help="acceleration scaling 0..1")
     p.add_argument("--plan_only", action="store_true", help="plan but do not execute")
-    p.add_argument("--direct", action="store_true",
+    p.add_argument("--direct", default=True, action="store_true",
                    help="named / joints: send the goal straight to the trajectory controller, without "
                         "MoveIt (no collision checking — joint-space straight line)")
-    p.add_argument("--duration", type=float, default=None,
+    p.add_argument("--duration", type=float, default=5.0,
                    help="--direct: motion time [s] (default: from the largest joint change and --vel)")
     p.add_argument("--safety", choices=["auto", "em_stop", "lidar", "off"], default="auto",
                    help="safety stop source: the robot's EM-stop system (auto if running; em_stop = "
